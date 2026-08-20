@@ -108,6 +108,7 @@
       "title": "Run tail marker",
       "type": "string",
       "description": "Operator-supplied ISO timestamp marker copied into every output record."
+      "editor": "textfield"
     }
   },
   "required": [
