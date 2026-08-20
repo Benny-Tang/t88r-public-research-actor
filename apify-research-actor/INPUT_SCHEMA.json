@@ -38,6 +38,7 @@
         "properties": {
           "url": {
             "title": "Public source URL",
+            "description": "HTTPS URL of a public source to inspect.",
             "type": "string",
             "pattern": "^https://"
           },
