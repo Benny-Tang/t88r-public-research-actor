@@ -16,7 +16,7 @@
       "description": "Public-source markets to label and filter.",
       "editor": "stringList",
       "default": ["Malaysia", "Singapore"],
-      "items": {"type": "string", "enum": ["Malaysia", "Singapore"]}
+      "items": {"type": "string"}
     },
     "targetCompanies": {
       "title": "Target companies",
