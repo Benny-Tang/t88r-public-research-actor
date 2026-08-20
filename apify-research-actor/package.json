@@ -1,0 +1,17 @@
+{
+  "name": "t88r-public-research-actor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public-source professional identity research Actor for T88R.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/entry.mjs",
+    "test": "node --test test/guardrails.test.mjs"
+  },
+  "dependencies": {
+    "apify": "^3.4.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
