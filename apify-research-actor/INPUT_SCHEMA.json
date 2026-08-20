@@ -16,14 +16,18 @@
       "description": "Public-source markets to label and filter.",
       "editor": "stringList",
       "default": ["Malaysia", "Singapore"],
-      "items": {"type": "string"}
+      "items": {
+        "type": "string"
+      }
     },
     "targetCompanies": {
       "title": "Target companies",
       "type": "array",
       "description": "Named hyperscalers and infrastructure operators to research.",
       "editor": "stringList",
-      "items": {"type": "string"},
+      "items": {
+        "type": "string"
+      },
       "maxItems": 50
     },
     "startUrls": {
@@ -31,7 +35,11 @@
       "type": "array",
       "description": "Public business pages only. Do not provide login URLs, private profiles, personal contact pages, or authenticated session URLs.",
       "editor": "requestListSources",
-      "prefill": [{"url": "https://"}],
+      "prefill": [
+        {
+          "url": "https://"
+        }
+      ],
       "maxItems": 20,
       "items": {
         "type": "object",
@@ -46,22 +54,22 @@
         "required": ["url"]
       }
     },
-          "label": {
-            "title": "Source label",
-            "description": "Optional human-readable label for the public source.",
-            "type": "string"
-          }
-        },
-        "required": ["url"]
-      }
-    },
     "locations": {
       "title": "Locations",
       "type": "array",
       "description": "Malaysia and Singapore location labels for evidence classification.",
       "editor": "stringList",
-      "default": ["Johor", "Negeri Sembilan", "Selangor", "Kuala Lumpur", "Cyberjaya", "Singapore"],
-      "items": {"type": "string"},
+      "default": [
+        "Johor",
+        "Negeri Sembilan",
+        "Selangor",
+        "Kuala Lumpur",
+        "Cyberjaya",
+        "Singapore"
+      ],
+      "items": {
+        "type": "string"
+      },
       "maxItems": 20
     },
     "maxPages": {
@@ -102,5 +110,10 @@
       "description": "Operator-supplied ISO timestamp marker copied into every output record."
     }
   },
-  "required": ["mode", "targetCompanies", "startUrls", "tailMarker"]
+  "required": [
+    "mode",
+    "targetCompanies",
+    "startUrls",
+    "tailMarker"
+  ]
 }
