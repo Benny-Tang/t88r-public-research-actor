@@ -42,7 +42,11 @@
             "type": "string",
             "pattern": "^https://"
           },
-          "label": {"type": "string"}
+          "label": {
+            "title": "Source label",
+            "description": "Optional human-readable label for the public source.",
+            "type": "string"
+          }
         },
         "required": ["url"]
       }
