@@ -20,6 +20,15 @@ function clampInput(input = {}) {
   const maxItems = Math.min(Math.max(Number(input.maxItems ?? MAX_ITEMS), 1), MAX_ITEMS);
   const maxDepth = Math.min(Math.max(Number(input.maxDepth ?? 1), 0), MAX_DEPTH);
   const timeoutSeconds = Math.min(Math.max(Number(input.timeoutSeconds ?? MAX_TIMEOUT_SECONDS), 10), MAX_TIMEOUT_SECONDS);
+  const markets = Array.isArray(input.markets)
+  ? input.markets
+      .filter((market) => ['Malaysia', 'Singapore'].includes(market))
+      .slice(0, 2)
+  : ['Malaysia', 'Singapore'];
+
+if (!markets.length) {
+  throw new Error('At least one allowed market is required: Malaysia or Singapore.');
+}
   const targetCompanies = Array.isArray(input.targetCompanies) ? input.targetCompanies.slice(0, 50) : [];
   if (!targetCompanies.length) throw new Error('At least one target company is required.');
   if (!input.tailMarker) throw new Error('A tailMarker is required for traceability.');
