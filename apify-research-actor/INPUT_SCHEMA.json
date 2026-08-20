@@ -36,7 +36,11 @@
       "items": {
         "type": "object",
         "properties": {
-          "url": {"type": "string", "pattern": "^https://"},
+          "url": {
+            "title": "Public source URL",
+            "type": "string",
+            "pattern": "^https://"
+          },
           "label": {"type": "string"}
         },
         "required": ["url"]
