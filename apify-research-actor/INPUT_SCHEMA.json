@@ -41,11 +41,14 @@
             "description": "HTTPS URL of a public source to inspect.",
             "type": "string",
             "pattern": "^https://"
-          },
+          }
+        },
+        "required": ["url"]
+      },
           "label": {
             "title": "Source label",
             "description": "Optional human-readable label for the public source.",
-            "type": "string"
+            "type": "string",
           }
         },
         "required": ["url"]
