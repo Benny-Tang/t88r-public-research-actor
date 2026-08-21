@@ -162,7 +162,13 @@ export async function runResearch(input, fetchImpl = fetch, now = new Date()) {
   for (const entry of safeInput.startUrls) {
     if (pages >= safeInput.maxPages || records.length >= safeInput.maxItems) break;
     if ((Date.now() - started) / 1000 >= safeInput.timeoutSeconds) break;
-    const response = await fetchImpl(entry.url, { redirect: 'follow', signal: AbortSignal.timeout(safeInput.timeoutSeconds * 1000) });
+    let response;
+    try {
+      response = await fetchImpl(entry.url, { redirect: 'follow', signal: AbortSignal.timeout(safeInput.timeoutSeconds * 1000) });
+    } catch (error) {
+      diagnostics.push({ url: entry.url, status: 'FETCH_FAILED', ok: false, bytes: 0, records: 0, error: error instanceof Error ? error.name : 'FetchError' });
+      continue;
+    }
     if (!response.ok) { diagnostics.push({ url: entry.url, status: response.status, ok: false, bytes: 0, records: 0 }); continue; }
     const html = await response.text();
     pages += 1;
@@ -172,4 +178,3 @@ export async function runResearch(input, fetchImpl = fetch, now = new Date()) {
   }
   return { records: dedupe(records).slice(0, safeInput.maxItems), pages, diagnostics, tailMarker: safeInput.tailMarker };
 }
-
